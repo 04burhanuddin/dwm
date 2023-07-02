@@ -1,4 +1,6 @@
 # DWM - Dynamic Window Manager
+>
+> version 6.4
 
 DWM is an extremely fast, small, and Dynamic Window Manager for X. from [suckless.org](https://dwm.suckless.org/)
 
@@ -19,8 +21,9 @@ like this in your .xinitrc:
     done &
     exec dwm
 
-## Patches
+## Patches and Features
 
+- You can modify key bindings in the ``config.h``
 - [Full Gaps](https://dwm.suckless.org/patches/fullgaps/) - This patch adds gaps between client windows
 - [Status2d](https://dwm.suckless.org/patches/status2d/) - Status2d allows colors and rectangle drawing in your DWM status bar
 - [xrdb](https://dwm.suckless.org/patches/xrdb/) - Allows dwm to read colors from xrdb (.Xresources) at run time.
