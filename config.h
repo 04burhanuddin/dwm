@@ -21,7 +21,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "󰨞 code", " st", " www", "󰭻 chat", "󰐌 obs" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* brightnessctl */
 static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
@@ -50,8 +50,8 @@ static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-  { "󱥋",      tile },    /* first entry is default */
-  { "󰩏",      NULL },    /* no layout function means floating behavior */
+  { "[]=",      tile },    /* first entry is default */
+  { "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",    monocle },
 	{ "TTT",    bstack },
 	{ "===",    bstackhoriz },
