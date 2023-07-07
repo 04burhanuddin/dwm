@@ -30,3 +30,4 @@ like this in your .xinitrc:
 - [Bottomstack](https://dwm.suckless.org/patches/bottomstack/) - Bstack and bstackhoriz are two stack layouts for dwm.
 - [Cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/) - This adds a "NULL, NULL" layout at the end of the list, which should always be the last layout in your list.
 - [Movestack](https://dwm.suckless.org/patches/movestack/) - This plugin allows you to move clients around in the stack and swap them with the master
+- [Pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster per tag.
