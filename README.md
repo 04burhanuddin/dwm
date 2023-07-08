@@ -23,6 +23,9 @@ like this in your .xinitrc:
 
 ## Patches and Features
 
+- [Key Binds](https://wiki.archlinux.org/title/dwm) - Include Key Binddings (volume & brightness)
+- [Always Center](https://dwm.suckless.org/patches/alwayscenter/) - All floating windows are centered, like the center patch, but without a rule.
+- [Hide Vacant Tags](https://dwm.suckless.org/patches/hide_vacant_tags/) - This patch prevents dwm from drawing tags with no clients (i.e. vacant) on the bar.
 - [Full Gaps](https://dwm.suckless.org/patches/fullgaps/) - This patch adds gaps between client windows
 - [Status2d](https://dwm.suckless.org/patches/status2d/) - Status2d allows colors and rectangle drawing in your DWM status bar
 - [xrdb](https://dwm.suckless.org/patches/xrdb/) - Allows dwm to read colors from xrdb (.Xresources) at run time.
