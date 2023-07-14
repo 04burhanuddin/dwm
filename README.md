@@ -34,3 +34,4 @@ like this in your .xinitrc:
 - [Cyclelayouts](https://dwm.suckless.org/patches/cyclelayouts/) - This adds a "NULL, NULL" layout at the end of the list, which should always be the last layout in your list.
 - [Movestack](https://dwm.suckless.org/patches/movestack/) - This plugin allows you to move clients around in the stack and swap them with the master
 - [Pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster per tag.
+- [Swallow](https://dwm.suckless.org/patches/swallow/) - This patch adds "window swallowing" to dwm as known from Plan 9's windowing system rio.
