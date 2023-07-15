@@ -35,3 +35,4 @@ like this in your .xinitrc:
 - [Movestack](https://dwm.suckless.org/patches/movestack/) - This plugin allows you to move clients around in the stack and swap them with the master
 - [Pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster per tag.
 - [Swallow](https://dwm.suckless.org/patches/swallow/) - This patch adds "window swallowing" to dwm as known from Plan 9's windowing system rio.
+- [ststusallmons](https://dwm.suckless.org/patches/statusallmons/) - This patch draws and updates the statusbar on all monitors.
