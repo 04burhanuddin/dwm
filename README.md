@@ -36,3 +36,4 @@ like this in your .xinitrc:
 - [Pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster per tag.
 - [Swallow](https://dwm.suckless.org/patches/swallow/) - This patch adds "window swallowing" to dwm as known from Plan 9's windowing system rio.
 - [ststusallmons](https://dwm.suckless.org/patches/statusallmons/) - This patch draws and updates the statusbar on all monitors.
+- [Colorbar](https://dwm.suckless.org/patches/colorbar/) - This patch lets you change the foreground and background color of every statusbar element.
