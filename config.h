@@ -2,54 +2,54 @@
 #include "movestack.c"
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 4;        /* gaps between windows */
+static const unsigned int gappx     = 1;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetbrainsMono Nerd Font:size=12:antialias=true", "JetbrainsMono Nerd Font:pixelsize=12:antialias=true:autohint=true"};
-static const char dmenufont[]       = "JetbrainsMono Nerd Font:size=12:antialias=true";
-static char normbgcolor[]           = "#1D2021";
-static char normbordercolor[]       = "#3C3836";
-static char normfgcolor[]           = "#EBDBB2";
-static char selfgcolor[]            = "#D65D0E";
-static char selbordercolor[]        = "#458588";
-static char selbgcolor[]            = "#458588";
+static const char *fonts[]          = {"JetbrainsMono Nerd Font:size=11:antialias=true:autohint=true", "MesloLGS NF:pixelsize=11:antialias=true:autohint=true"};
+static const char dmenufont[]       = "JetbrainsMono Nerd Font:size=11:antialias=true:autohint=true";
+static char normbgcolor[]           = "#00141A";
+static char normbordercolor[]       = "#B58900";
+static char normfgcolor[]           = "#FFFFFF";
+static char selfgcolor[]            = "#FFFFFF";
+static char selbordercolor[]        = "#B58900";
+static char selbgcolor[]            = "#073642";
 static char *colors[][3] = {
-      /*               fg           bg           border   */
-      [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-      [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-		[SchemeStatus]  = { normfgcolor, normbgcolor,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-		[SchemeTagsSel]  = { normfgcolor, selbgcolor,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-		[SchemeTagsNorm]  = { normfgcolor, normbgcolor,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-		[SchemeInfoSel]  = { selfgcolor, normbgcolor,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-		[SchemeInfoNorm]  = { normfgcolor, normbgcolor,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+  /*                    fg           bg           border   */
+  [SchemeNorm]      = { normfgcolor, normbgcolor, normbordercolor },
+  [SchemeSel]       = { selfgcolor,  selbgcolor,  selbordercolor  },
+  [SchemeStatus]    = { normfgcolor, normbgcolor, "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+  [SchemeTagsSel]   = { normfgcolor, selbgcolor, "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+  [SchemeTagsNorm]  = { normfgcolor, normbgcolor, "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+  [SchemeInfoSel]   = { selfgcolor, normbgcolor, "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+  [SchemeInfoNorm]  = { normfgcolor, normbgcolor, "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* brightnessctl */
-static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
-static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
+static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
+static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };
 
 /* volume */
-static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%",   NULL };
-static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%",   NULL };
+static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
+static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
 static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-  { "TelegramDesktop",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "obs",                NULL,     NULL,           0,         1,          0,           0,        -1 },
-  { "discord",                NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+  /* xprop(1):
+   * WM_CLASS(STRING) = instance, class
+   * WM_NAME(STRING) = title
+   */
+  /* class              instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+  { "TelegramDesktop",  NULL,     NULL,           0,         1,          0,           0,        -1 },
+  { "obs",              NULL,     NULL,           0,         1,          0,           0,        -1 },
+  { "discord",          NULL,     NULL,           0,         1,          0,           0,        -1 },
+  { "Firefox",          NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+  { "St",               NULL,     NULL,           0,         0,          1,           0,        -1 },
+  { NULL,               NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -81,7 +81,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", normbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
